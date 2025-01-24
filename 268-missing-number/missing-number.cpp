@@ -2,21 +2,14 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) 
     {
-        int range = nums.size();
-        unordered_set<int> s;
+        int ans = nums.size();
 
-        for(auto num:nums)
+        for(int i=0;i<nums.size();++i)
         {
-            s.insert(num);
-        }
-
-        for(int i = 1;i<=range;++i)
-        {
-            if(s.find(i)==s.end())
-            return i;
-        }
-
-       return 0; 
+            ans+=i;
+            ans-=nums[i];
+        } 
+        return ans;
     }
     
 };
