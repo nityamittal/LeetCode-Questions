@@ -3,23 +3,22 @@ public:
 
     void sortColors(vector<int>& nums) 
     {
-        vector<int> freq(3,0);
+        int r =0, w=0, b=nums.size()-1;
 
-        for(auto n:nums)
+        while(w<=b)
         {
-            freq[n]++;
-        }
-        int k=0, i=0;
-
-        while(i<nums.size())
-        {
-            for(int j=0;j<freq[k];++j)
+            if(nums[w]==0)
             {
-                nums[i++]=k;
+                swap(nums[w++], nums[r++]);
             }
-            ++k;
+            else if(nums[w]==1)
+            {
+                ++w;
+            }
+            else
+            {
+                swap(nums[w], nums[b--]);
+            }
         }
-                
-        
     }
 };
