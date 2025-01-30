@@ -1,9 +1,8 @@
 class Solution {
 public:
-
     void sortColors(vector<int>& nums) 
     {
-        int r =0, w=0, b=nums.size()-1;
+        int r=0, w=0, b=nums.size()-1;
 
         while(w<=b)
         {
@@ -11,14 +10,15 @@ public:
             {
                 swap(nums[w++], nums[r++]);
             }
-            else if(nums[w]==1)
-            {
-                ++w;
-            }
-            else
+            else if (nums[w]==2)
             {
                 swap(nums[w], nums[b--]);
             }
+            else
+            {
+                ++w;
+            }
         }
+        
     }
 };
