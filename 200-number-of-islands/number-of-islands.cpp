@@ -32,10 +32,6 @@ public:
                     traverseIsland(grid, i,j,m,n);
                     ++numOfIslands;
                 }
-                else
-                {
-                    continue;
-                }
             }
 
         }
