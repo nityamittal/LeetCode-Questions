@@ -27,7 +27,7 @@ public:
 
                 temp.push_back(merge2Lists(l1, l2));
             }
-            lists = temp;
+            lists = move(temp);
         }
         return lists[0];
         
