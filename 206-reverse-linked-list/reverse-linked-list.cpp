@@ -12,20 +12,17 @@ class Solution {
 public:
     ListNode* reverseList(ListNode* head) 
     {
-        ListNode* prev = nullptr;
-        ListNode* current = head;
-        ListNode* temp;
+        //base case
+        if(head==nullptr or head->next==nullptr)
+        return head;
 
-        while(current!=nullptr)
-        {
-            temp=current->next;
-            current->next = prev;
+        //recursive call
+        ListNode* revHead = reverseList(head->next);
+        head->next->next = head;
+        head->next = nullptr;
 
-            prev = current;
-            current = temp;            
-            
+        return revHead;       
 
-        }
-        return prev;        
+        
     }
 };
