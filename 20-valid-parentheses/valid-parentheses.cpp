@@ -3,40 +3,44 @@ public:
     bool isValid(string s) 
     {
         stack<char> st;
-        bool flag = true;
 
         for(auto ch:s)
         {
-            switch(ch)
+            if(ch=='(' or ch=='{' or ch=='[')
             {
-                case '(':
-                case '[':
-                case '{': st.push(ch);
-                          break;
-                case ')': if(!st.empty() and st.top()=='(')
-                            st.pop();
-                          else 
-                            return false;
-                          break;
-
-                case ']': if(!st.empty() and st.top()=='[')
-                            st.pop();
-                          else 
-                            return false;
-                          break;
-
-                case '}': if(!st.empty() and st.top()=='{')
-                            st.pop();
-                          else 
-                            return false;
-                          break;     
-
-                default:
-
+                st.push(ch);
+            }
+            if(ch==')' or ch=='}' or ch==']')
+            {
+                if(st.empty())
+                return false;
+                else
+                {
+                    if(ch==')')
+                    {
+                        if(st.top()=='(')
+                        st.pop();
+                        else
+                        return false;
+                    }
+                    if(ch=='}')
+                    {
+                        if(st.top()=='{')
+                        st.pop();
+                        else
+                        return false;
+                    }
+                    if(ch==']')
+                    {
+                        if(st.top()=='[')
+                        st.pop();
+                        else
+                        return false;
+                    }
+                }
             }
         }
         return st.empty();
         
     }
-    
 };
