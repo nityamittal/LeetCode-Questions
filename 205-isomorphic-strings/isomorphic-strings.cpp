@@ -2,29 +2,24 @@ class Solution {
 public:
     bool isIsomorphic(string s, string t) 
     {
-        unordered_map<char,int> index_s;
-        unordered_map<char,int> index_t;
-        bool flag = true;
+        unordered_map<char, int> ms;
+        unordered_map<char, int> mt;
 
-        int n = s.length();
-
-        for(int i=0;i<n;++i)
+        for(int i=0;i<s.size();++i)
         {
-            if(index_s.find(s[i])==index_s.end())
+            if(ms.find(s[i])==ms.end())
             {
-                index_s[s[i]]=i;
+                ms[s[i]] = i;
             }
-            if(index_t.find(t[i])==index_t.end())
+            if(mt.find(t[i])==mt.end())
             {
-                index_t[t[i]]=i;
+                mt[t[i]] = i;
             }
-            
-            if(index_s[s[i]]!=index_t[t[i]])
-            {
-                return false;
-            }
+
+            if(ms[s[i]]!=mt[t[i]])
+            return false;
         }
-        return true;
         
+        return true;
     }
 };
