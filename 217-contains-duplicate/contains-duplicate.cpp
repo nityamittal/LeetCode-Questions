@@ -4,14 +4,13 @@ public:
     {
         unordered_set<int> s;
 
-        for(auto num:nums)
+        for(auto n:nums)
         {
-            if(s.find(num)==s.end())
+            if(s.find(n)!=s.end())
             {
-                s.insert(num);
+                return true;
             }
-            else
-            return true;
+            s.insert(n);
         }
         return false;
         
