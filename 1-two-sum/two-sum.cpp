@@ -6,15 +6,15 @@ public:
 
         for(int i=0;i<nums.size();++i)
         {
+                        
             if(m.find(target-nums[i])!=m.end())
             {
-                return {m[target-nums[i]], i};
+                return {i, m[target-nums[i]]};
             }
-            m[nums[i]] = i;
+            m[nums[i]]=i;
+            
+            
         }
-
         return {-1,-1};
-
-        
     }
 };
